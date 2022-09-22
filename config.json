@@ -1,6 +1,6 @@
 {
     "proxy" : true,
     "random_messages": true,
-    "delay": 0.3,
-    "tip": "delay is reccomended to be set to 0.3 if you are using proxies and 0.1 if you are not using proxies"
+    "delay": 0.4,
+    "tip": "delay is reccomended to be set to 0.4"
 }
