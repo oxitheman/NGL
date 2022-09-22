@@ -18,7 +18,7 @@ This was written as a proof of concept to show that the automation is possible. 
 
 ## Preview
 CLICK THE IMAGE TO PLAY!
-[![Youtube - Click to play](https://i.imgur.com/gAnspBJ.png)](https://youtu.be/433HY106FOQ)
+[![Youtube - Click to play](https://i.imgur.com/gAnspBJ.png)](https://youtube.com/shorts/FMkK9Gx4Acc?feature=share)
 
 
 ## Contact
