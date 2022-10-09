@@ -182,5 +182,5 @@ randomQuestions = [
     "your really attractive",
     "your worst habit?",
     "your worst personality characteristic?",
-    "youre cute"
+    "youre cute",
 ]
