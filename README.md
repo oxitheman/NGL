@@ -3,7 +3,6 @@
   </p>
  <p align="center">
   <img src="https://img.shields.io/github/license/oxitheman/NGL?style=for-the-badge&logo=appveyor">
-  <img src="https://img.shields.io/github/downloads/oxitheman/NGL/total?style=for-the-badge&logo=appveyor">
   <img src="https://img.shields.io/github/stars/oxitheman/NGL?style=for-the-badge&logo=appveyor">
   <img src="https://img.shields.io/github/forks/oxitheman/NGL?style=for-the-badge&logo=appveyor">
   </p>
