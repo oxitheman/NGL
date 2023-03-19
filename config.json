@@ -1,6 +1,6 @@
 {
     "proxy" : false,
-    "random_messages": true,
+    "random_messages": false,
     "delay": 0.4,
     "tip": "delay is reccomended to be set to 0.4"
 }

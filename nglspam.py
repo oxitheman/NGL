@@ -62,13 +62,14 @@ def main(username, message, deviceid, proxy, proxystatus):
         try:
 
             postresp = client.post(
-                f"https://ngl.link/{username}",
+                f"https://ngl.link/api/submit",
                 data={
+                    "username": username,
                     "question": message,
                     "deviceId": deviceid,
                 },
             )
-            if postresp.status_code == 302:
+            if postresp.status_code == 200:
                 sent += 1
                 Console.logger(
                     f"Sent {message} to victim, Sent {sent} messages, Errored {errored} messages",
@@ -80,6 +81,8 @@ def main(username, message, deviceid, proxy, proxystatus):
                 exit()
             elif postresp.status_code == 429:
                 Console.logger(f"User {username} is rate limited", status="r")
+            else:
+                Console.logger(postresp.status_code, status="r")
 
         except Exception as e:
             errored += 1
