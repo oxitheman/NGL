@@ -52,42 +52,42 @@ def main(username, message, deviceid, proxy, proxystatus):
         "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:104.0) Gecko/20100101 Firefox/104.0",
     }
 
-    with httpx.Client(headers=headers) as client:
-        if proxystatus == True:
-            client.proxies = {"http://": proxy}
+    
+    if proxystatus == True:
+        client = httpx.Client(headers=headers, proxies=proxy)
 
-        else:
-            pass
+    else:
+        client = httpx.Client(headers=headers)
 
-        try:
-
-            postresp = client.post(
-                f"https://ngl.link/api/submit",
-                data={
-                    "username": username,
-                    "question": message,
-                    "deviceId": deviceid,
-                },
+    try:
+        
+        postresp = client.post(
+            f"https://ngl.link/api/submit",
+            data={
+                "username": username,
+                "question": message,
+                "deviceId": deviceid,
+            }, 
+        )
+        if postresp.status_code == 200:
+            sent += 1
+            Console.logger(
+                f"Sent {message} to victim, Sent {sent} messages, Errored {errored} messages",
+                status="g",
             )
-            if postresp.status_code == 200:
-                sent += 1
-                Console.logger(
-                    f"Sent {message} to victim, Sent {sent} messages, Errored {errored} messages",
-                    status="g",
-                )
 
-            elif postresp.status_code == 404:
-                Console.logger(f"User {username} does not exist", status="r")
-                exit()
-            elif postresp.status_code == 429:
-                Console.logger(f"User {username} is rate limited", status="r")
-            else:
-                Console.logger(postresp.status_code, status="r")
+        elif postresp.status_code == 404:
+            Console.logger(f"User {username} does not exist", status="r")
+            exit()
+        elif postresp.status_code == 429:
+            Console.logger(f"User {username} is rate limited", status="r")
+        else:
+            Console.logger(postresp.status_code, status="r")
 
-        except Exception as e:
-            errored += 1
-            Console.logger(f"Error: {e}", status="y")
-            main(username, messages(), deviceid(), proxy())
+    except Exception as e:
+        errored += 1
+        Console.logger(f"Error: {e}", status="y")
+        main(username, messages(), deviceid(), proxy())
 
 
 def messages():

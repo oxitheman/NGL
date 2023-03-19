@@ -1,1 +1,1 @@
-Enter proxies here (set proxy to true in config if you want to use this)
+enter proxies here and set proxies = true in config
